@@ -18,7 +18,7 @@
 
 Name:           ibus-anthy
 Version:        1.5.13
-Release:        1%{?dist}
+Release:        4%{?dist}
 Summary:        The Anthy engine for IBus input platform
 License:        GPLv2+
 URL:            https://github.com/ibus/ibus/wiki
@@ -27,6 +27,7 @@ Source0:        https://github.com/ibus/ibus-anthy/releases/download/%{version}/
 # Upstreamed patches.
 # Patch0:         %%{name}-HEAD.patch
 Patch1:         %{name}-1938129-default-hiragana.patch
+Patch2:         %{name}-24804-super-key.patch
 
 BuildRequires:  anthy-unicode-devel
 BuildRequires:  desktop-file-utils
@@ -152,6 +153,15 @@ desktop-file-validate \
 %{_datadir}/installed-tests/%{name}
 
 %changelog
+* Mon Mar 11 2024 Takao Fujiwara <tfujiwar@redhat.com> - 1.5.13-4
+- Fix CI. Related: RHEL-24804
+
+* Mon Mar 11 2024 Takao Fujiwara <tfujiwar@redhat.com> - 1.5.13-3
+- Bump for el9_4. Related: RHEL-24804
+
+* Thu Mar 07 2024 Takao Fujiwara <tfujiwar@redhat.com> - 1.5.13-2
+- Distinguish Super-space and space shortcut keys. Related: RHEL-24804
+
 * Fri Aug 20 2021 Takao Fujiwara <tfujiwar@redhat.com> - 1.5.13-1
 - Remove Ctrl+period in circle_kana_mode. Related: rhbz#1993079
 
